@@ -1,0 +1,14 @@
+services:
+  winter:
+    build: .
+    image: jet-charter-winter
+    container_name: jet-charter-winter
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+      # vendor lives in a Docker volume: much faster than the Windows bind mount
+      - vendor:/app/vendor
+
+volumes:
+  vendor:
